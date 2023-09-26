@@ -1,0 +1,659 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		275501BE2AC5F81E00FC567A /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275501BD2AC5F81E00FC567A /* DropView.swift */; };
+		275501C02AC622B400FC567A /* DropButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275501BF2AC622B400FC567A /* DropButton.swift */; };
+		275501C42AC6266500FC567A /* PlaceholderMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275501C32AC6266500FC567A /* PlaceholderMapView.swift */; };
+		27591B572AC4CCAC00182716 /* FileSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27591B562AC4CCAC00182716 /* FileSelectionView.swift */; };
+		27591B592AC4D84A00182716 /* DragButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27591B582AC4D84A00182716 /* DragButton.swift */; };
+		27591B5C2AC4E9B700182716 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27591B5A2AC4E9B700182716 /* MapView.swift */; };
+		27591B5F2AC4F9A000182716 /* CommonUtilitiesAndStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27591B5E2AC4F9A000182716 /* CommonUtilitiesAndStyles.swift */; };
+		2763CDF92AC346B2004898C5 /* AerotasToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CDF82AC346B2004898C5 /* AerotasToolsApp.swift */; };
+		2763CDFD2AC346B4004898C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2763CDFC2AC346B4004898C5 /* Assets.xcassets */; };
+		2763CE002AC346B4004898C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2763CDFF2AC346B4004898C5 /* Preview Assets.xcassets */; };
+		2763CE0B2AC346B4004898C5 /* Aerotas_ToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE0A2AC346B4004898C5 /* Aerotas_ToolsTests.swift */; };
+		2763CE152AC346B4004898C5 /* Aerotas_ToolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE142AC346B4004898C5 /* Aerotas_ToolsUITests.swift */; };
+		2763CE172AC346B4004898C5 /* Aerotas_ToolsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE162AC346B4004898C5 /* Aerotas_ToolsUITestsLaunchTests.swift */; };
+		2763CE242AC346C4004898C5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE232AC346C3004898C5 /* ContentView.swift */; };
+		2763CE282AC34728004898C5 /* KMLParserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE272AC34728004898C5 /* KMLParserDelegate.swift */; };
+		2763CE2C2AC34863004898C5 /* parseKMLContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE2B2AC34863004898C5 /* parseKMLContent.swift */; };
+		2763CE2F2AC3496A004898C5 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2763CE2E2AC3496A004898C5 /* ZIPFoundation */; };
+		2763CE312AC359CC004898C5 /* KMLUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE302AC359CC004898C5 /* KMLUtilities.swift */; };
+		278858DC2AC3861700B389FF /* CoordinatesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278858DB2AC3861700B389FF /* CoordinatesContainer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2763CE072AC346B4004898C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2763CDED2AC346B2004898C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2763CDF42AC346B2004898C5;
+			remoteInfo = "Aerotas Tools";
+		};
+		2763CE112AC346B4004898C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2763CDED2AC346B2004898C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2763CDF42AC346B2004898C5;
+			remoteInfo = "Aerotas Tools";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		275501BD2AC5F81E00FC567A /* DropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
+		275501BF2AC622B400FC567A /* DropButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropButton.swift; sourceTree = "<group>"; };
+		275501C32AC6266500FC567A /* PlaceholderMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderMapView.swift; sourceTree = "<group>"; };
+		27591B562AC4CCAC00182716 /* FileSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSelectionView.swift; sourceTree = "<group>"; };
+		27591B582AC4D84A00182716 /* DragButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragButton.swift; sourceTree = "<group>"; };
+		27591B5A2AC4E9B700182716 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		27591B5E2AC4F9A000182716 /* CommonUtilitiesAndStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtilitiesAndStyles.swift; sourceTree = "<group>"; };
+		2763CDF52AC346B2004898C5 /* Aerotas Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aerotas Tools.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2763CDF82AC346B2004898C5 /* AerotasToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AerotasToolsApp.swift; sourceTree = "<group>"; };
+		2763CDFC2AC346B4004898C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2763CDFF2AC346B4004898C5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2763CE012AC346B4004898C5 /* Aerotas_Tools.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aerotas_Tools.entitlements; sourceTree = "<group>"; };
+		2763CE062AC346B4004898C5 /* Aerotas ToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Aerotas ToolsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2763CE0A2AC346B4004898C5 /* Aerotas_ToolsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aerotas_ToolsTests.swift; sourceTree = "<group>"; };
+		2763CE102AC346B4004898C5 /* Aerotas ToolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Aerotas ToolsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2763CE142AC346B4004898C5 /* Aerotas_ToolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aerotas_ToolsUITests.swift; sourceTree = "<group>"; };
+		2763CE162AC346B4004898C5 /* Aerotas_ToolsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aerotas_ToolsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2763CE232AC346C3004898C5 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2763CE272AC34728004898C5 /* KMLParserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMLParserDelegate.swift; sourceTree = "<group>"; };
+		2763CE2B2AC34863004898C5 /* parseKMLContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parseKMLContent.swift; sourceTree = "<group>"; };
+		2763CE302AC359CC004898C5 /* KMLUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLUtilities.swift; sourceTree = "<group>"; };
+		278858DB2AC3861700B389FF /* CoordinatesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesContainer.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2763CDF22AC346B2004898C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2763CE2F2AC3496A004898C5 /* ZIPFoundation in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2763CE032AC346B4004898C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2763CE0D2AC346B4004898C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2763CDEC2AC346B2004898C5 = {
+			isa = PBXGroup;
+			children = (
+				2763CDF72AC346B2004898C5 /* Aerotas Tools */,
+				2763CE092AC346B4004898C5 /* Aerotas ToolsTests */,
+				2763CE132AC346B4004898C5 /* Aerotas ToolsUITests */,
+				2763CDF62AC346B2004898C5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2763CDF62AC346B2004898C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2763CDF52AC346B2004898C5 /* Aerotas Tools.app */,
+				2763CE062AC346B4004898C5 /* Aerotas ToolsTests.xctest */,
+				2763CE102AC346B4004898C5 /* Aerotas ToolsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2763CDF72AC346B2004898C5 /* Aerotas Tools */ = {
+			isa = PBXGroup;
+			children = (
+				2763CDF82AC346B2004898C5 /* AerotasToolsApp.swift */,
+				2763CE232AC346C3004898C5 /* ContentView.swift */,
+				27591B5E2AC4F9A000182716 /* CommonUtilitiesAndStyles.swift */,
+				275501BD2AC5F81E00FC567A /* DropView.swift */,
+				27591B582AC4D84A00182716 /* DragButton.swift */,
+				275501BF2AC622B400FC567A /* DropButton.swift */,
+				27591B5A2AC4E9B700182716 /* MapView.swift */,
+				27591B562AC4CCAC00182716 /* FileSelectionView.swift */,
+				2763CE302AC359CC004898C5 /* KMLUtilities.swift */,
+				2763CE272AC34728004898C5 /* KMLParserDelegate.swift */,
+				2763CE2B2AC34863004898C5 /* parseKMLContent.swift */,
+				278858DB2AC3861700B389FF /* CoordinatesContainer.swift */,
+				275501C32AC6266500FC567A /* PlaceholderMapView.swift */,
+				2763CDFC2AC346B4004898C5 /* Assets.xcassets */,
+				2763CE012AC346B4004898C5 /* Aerotas_Tools.entitlements */,
+				2763CDFE2AC346B4004898C5 /* Preview Content */,
+			);
+			path = "Aerotas Tools";
+			sourceTree = "<group>";
+		};
+		2763CDFE2AC346B4004898C5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2763CDFF2AC346B4004898C5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2763CE092AC346B4004898C5 /* Aerotas ToolsTests */ = {
+			isa = PBXGroup;
+			children = (
+				2763CE0A2AC346B4004898C5 /* Aerotas_ToolsTests.swift */,
+			);
+			path = "Aerotas ToolsTests";
+			sourceTree = "<group>";
+		};
+		2763CE132AC346B4004898C5 /* Aerotas ToolsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2763CE142AC346B4004898C5 /* Aerotas_ToolsUITests.swift */,
+				2763CE162AC346B4004898C5 /* Aerotas_ToolsUITestsLaunchTests.swift */,
+			);
+			path = "Aerotas ToolsUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2763CDF42AC346B2004898C5 /* Aerotas Tools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2763CE1A2AC346B4004898C5 /* Build configuration list for PBXNativeTarget "Aerotas Tools" */;
+			buildPhases = (
+				2763CDF12AC346B2004898C5 /* Sources */,
+				2763CDF22AC346B2004898C5 /* Frameworks */,
+				2763CDF32AC346B2004898C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Aerotas Tools";
+			packageProductDependencies = (
+				2763CE2E2AC3496A004898C5 /* ZIPFoundation */,
+			);
+			productName = "Aerotas Tools";
+			productReference = 2763CDF52AC346B2004898C5 /* Aerotas Tools.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2763CE052AC346B4004898C5 /* Aerotas ToolsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2763CE1D2AC346B4004898C5 /* Build configuration list for PBXNativeTarget "Aerotas ToolsTests" */;
+			buildPhases = (
+				2763CE022AC346B4004898C5 /* Sources */,
+				2763CE032AC346B4004898C5 /* Frameworks */,
+				2763CE042AC346B4004898C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2763CE082AC346B4004898C5 /* PBXTargetDependency */,
+			);
+			name = "Aerotas ToolsTests";
+			productName = "Aerotas ToolsTests";
+			productReference = 2763CE062AC346B4004898C5 /* Aerotas ToolsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2763CE0F2AC346B4004898C5 /* Aerotas ToolsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2763CE202AC346B4004898C5 /* Build configuration list for PBXNativeTarget "Aerotas ToolsUITests" */;
+			buildPhases = (
+				2763CE0C2AC346B4004898C5 /* Sources */,
+				2763CE0D2AC346B4004898C5 /* Frameworks */,
+				2763CE0E2AC346B4004898C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2763CE122AC346B4004898C5 /* PBXTargetDependency */,
+			);
+			name = "Aerotas ToolsUITests";
+			productName = "Aerotas ToolsUITests";
+			productReference = 2763CE102AC346B4004898C5 /* Aerotas ToolsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2763CDED2AC346B2004898C5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					2763CDF42AC346B2004898C5 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					2763CE052AC346B4004898C5 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 2763CDF42AC346B2004898C5;
+					};
+					2763CE0F2AC346B4004898C5 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 2763CDF42AC346B2004898C5;
+					};
+				};
+			};
+			buildConfigurationList = 2763CDF02AC346B2004898C5 /* Build configuration list for PBXProject "Aerotas Tools" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2763CDEC2AC346B2004898C5;
+			packageReferences = (
+				2763CE2D2AC3496A004898C5 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+			);
+			productRefGroup = 2763CDF62AC346B2004898C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2763CDF42AC346B2004898C5 /* Aerotas Tools */,
+				2763CE052AC346B4004898C5 /* Aerotas ToolsTests */,
+				2763CE0F2AC346B4004898C5 /* Aerotas ToolsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2763CDF32AC346B2004898C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2763CE002AC346B4004898C5 /* Preview Assets.xcassets in Resources */,
+				2763CDFD2AC346B4004898C5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2763CE042AC346B4004898C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2763CE0E2AC346B4004898C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2763CDF12AC346B2004898C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2763CE282AC34728004898C5 /* KMLParserDelegate.swift in Sources */,
+				27591B5F2AC4F9A000182716 /* CommonUtilitiesAndStyles.swift in Sources */,
+				27591B592AC4D84A00182716 /* DragButton.swift in Sources */,
+				27591B5C2AC4E9B700182716 /* MapView.swift in Sources */,
+				275501C42AC6266500FC567A /* PlaceholderMapView.swift in Sources */,
+				275501BE2AC5F81E00FC567A /* DropView.swift in Sources */,
+				2763CE312AC359CC004898C5 /* KMLUtilities.swift in Sources */,
+				27591B572AC4CCAC00182716 /* FileSelectionView.swift in Sources */,
+				278858DC2AC3861700B389FF /* CoordinatesContainer.swift in Sources */,
+				275501C02AC622B400FC567A /* DropButton.swift in Sources */,
+				2763CE2C2AC34863004898C5 /* parseKMLContent.swift in Sources */,
+				2763CE242AC346C4004898C5 /* ContentView.swift in Sources */,
+				2763CDF92AC346B2004898C5 /* AerotasToolsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2763CE022AC346B4004898C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2763CE0B2AC346B4004898C5 /* Aerotas_ToolsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2763CE0C2AC346B4004898C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2763CE172AC346B4004898C5 /* Aerotas_ToolsUITestsLaunchTests.swift in Sources */,
+				2763CE152AC346B4004898C5 /* Aerotas_ToolsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2763CE082AC346B4004898C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2763CDF42AC346B2004898C5 /* Aerotas Tools */;
+			targetProxy = 2763CE072AC346B4004898C5 /* PBXContainerItemProxy */;
+		};
+		2763CE122AC346B4004898C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2763CDF42AC346B2004898C5 /* Aerotas Tools */;
+			targetProxy = 2763CE112AC346B4004898C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2763CE182AC346B4004898C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2763CE192AC346B4004898C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		2763CE1B2AC346B4004898C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Aerotas Tools/Aerotas_Tools.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Aerotas Tools/Preview Content\"";
+				DEVELOPMENT_TEAM = NJ2VK5XA42;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aerotas.Aerotas-Tools";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2763CE1C2AC346B4004898C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Aerotas Tools/Aerotas_Tools.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Aerotas Tools/Preview Content\"";
+				DEVELOPMENT_TEAM = NJ2VK5XA42;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aerotas.Aerotas-Tools";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		2763CE1E2AC346B4004898C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NJ2VK5XA42;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aerotas.Aerotas-ToolsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aerotas Tools.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Aerotas Tools";
+			};
+			name = Debug;
+		};
+		2763CE1F2AC346B4004898C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NJ2VK5XA42;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aerotas.Aerotas-ToolsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aerotas Tools.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Aerotas Tools";
+			};
+			name = Release;
+		};
+		2763CE212AC346B4004898C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NJ2VK5XA42;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aerotas.Aerotas-ToolsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Aerotas Tools";
+			};
+			name = Debug;
+		};
+		2763CE222AC346B4004898C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NJ2VK5XA42;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "aerotas.Aerotas-ToolsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Aerotas Tools";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2763CDF02AC346B2004898C5 /* Build configuration list for PBXProject "Aerotas Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2763CE182AC346B4004898C5 /* Debug */,
+				2763CE192AC346B4004898C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2763CE1A2AC346B4004898C5 /* Build configuration list for PBXNativeTarget "Aerotas Tools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2763CE1B2AC346B4004898C5 /* Debug */,
+				2763CE1C2AC346B4004898C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2763CE1D2AC346B4004898C5 /* Build configuration list for PBXNativeTarget "Aerotas ToolsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2763CE1E2AC346B4004898C5 /* Debug */,
+				2763CE1F2AC346B4004898C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2763CE202AC346B4004898C5 /* Build configuration list for PBXNativeTarget "Aerotas ToolsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2763CE212AC346B4004898C5 /* Debug */,
+				2763CE222AC346B4004898C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2763CE2D2AC3496A004898C5 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.16;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2763CE2E2AC3496A004898C5 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2763CE2D2AC3496A004898C5 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2763CDED2AC346B2004898C5 /* Project object */;
+}
