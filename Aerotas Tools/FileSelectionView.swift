@@ -254,4 +254,10 @@ func styleNSButton(button: NSButton) {
 }
 
 
-//test this should push
+// MARK: - SwiftUI Preview
+struct FileSelectionView_Previews: PreviewProvider {
+    static var previews: some View {
+        FileSelectionView()
+            .environmentObject(CoordinatesContainer()) // Use this if your view relies on EnvironmentObjects
+    }
+}
