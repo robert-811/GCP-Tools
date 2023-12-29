@@ -19,12 +19,9 @@ import SwiftUI
 
 @main
 struct AerotasToolsApp: App {
-    @StateObject var coordinatesContainer = CoordinatesContainer()
-
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(coordinatesContainer)
+            MainView()
         }
     }
 }

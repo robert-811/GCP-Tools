@@ -26,6 +26,7 @@
 		2763CE2F2AC3496A004898C5 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2763CE2E2AC3496A004898C5 /* ZIPFoundation */; };
 		2763CE312AC359CC004898C5 /* KMLUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE302AC359CC004898C5 /* KMLUtilities.swift */; };
 		278858DC2AC3861700B389FF /* CoordinatesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278858DB2AC3861700B389FF /* CoordinatesContainer.swift */; };
+		27FBD9E32B3F84FB00D40DF8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FBD9E22B3F84FB00D40DF8 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		2763CE2B2AC34863004898C5 /* parseKMLContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parseKMLContent.swift; sourceTree = "<group>"; };
 		2763CE302AC359CC004898C5 /* KMLUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLUtilities.swift; sourceTree = "<group>"; };
 		278858DB2AC3861700B389FF /* CoordinatesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesContainer.swift; sourceTree = "<group>"; };
+		27FBD9E22B3F84FB00D40DF8 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		2763CDF72AC346B2004898C5 /* Aerotas Tools */ = {
 			isa = PBXGroup;
 			children = (
+				27FBD9E22B3F84FB00D40DF8 /* MainView.swift */,
 				2763CDF82AC346B2004898C5 /* AerotasToolsApp.swift */,
 				2763CE232AC346C3004898C5 /* ContentView.swift */,
 				27591B5E2AC4F9A000182716 /* CommonUtilitiesAndStyles.swift */,
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2763CE282AC34728004898C5 /* KMLParserDelegate.swift in Sources */,
+				27FBD9E32B3F84FB00D40DF8 /* MainView.swift in Sources */,
 				27591B5F2AC4F9A000182716 /* CommonUtilitiesAndStyles.swift in Sources */,
 				27591B592AC4D84A00182716 /* DragButton.swift in Sources */,
 				27591B5C2AC4E9B700182716 /* MapView.swift in Sources */,
