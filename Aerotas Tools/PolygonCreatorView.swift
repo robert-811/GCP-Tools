@@ -32,10 +32,7 @@ struct PolygonCreatorView: View {
         .navigationTitle("Polygon Creator")
     }
     
-    // Add your new functions here
-    
     func parseInput() -> (CLLocationCoordinate2D?, Double?) {
-        // Remove the degree symbol if present and split by space
         let coordinateComponents = centerCoordinateInput
             .replacingOccurrences(of: "°", with: "")
             .split { $0 == " " || $0 == "," }
@@ -53,27 +50,39 @@ struct PolygonCreatorView: View {
     }
     
     func calculateSquarePolygonCoordinates(center: CLLocationCoordinate2D, acreage: Double) -> [CLLocationCoordinate2D] {
-        let metersPerAcre = 4046.86
-        let totalArea = metersPerAcre * acreage
-        let sideLength = sqrt(totalArea)
-        
-        // Approximate - this will be less accurate the further from the equator you get
-        let degreesPerMeterLatitude = 1 / 111320.0
-        let degreesPerMeterLongitude = 1 / (111320.0 * cos(center.latitude * .pi / 180))
-        
-        let halfSide = sideLength / 2
-        let deltaLat = degreesPerMeterLatitude * halfSide
-        let deltaLong = degreesPerMeterLongitude * halfSide
-        
-        return [
-            CLLocationCoordinate2D(latitude: center.latitude + deltaLat, longitude: center.longitude + deltaLong),
-            CLLocationCoordinate2D(latitude: center.latitude + deltaLat, longitude: center.longitude - deltaLong),
-            CLLocationCoordinate2D(latitude: center.latitude - deltaLat, longitude: center.longitude - deltaLong),
-            CLLocationCoordinate2D(latitude: center.latitude - deltaLat, longitude: center.longitude + deltaLong),
-            CLLocationCoordinate2D(latitude: center.latitude + deltaLat, longitude: center.longitude + deltaLong) // Close the loop
-        ]
+        let sideLength = sqrt(acreage * 4046.86) // Convert acreage to square meters
+        let distanceToCorner = sideLength / sqrt(2) // Distance from center to a corner
+
+        // Bearings for the four corners: NE, SE, SW, NW
+        let bearings = [45, 135, 225, 315].map { $0 * Double.pi / 180 }
+
+        var coordinates = bearings.map { bearing in
+            destinationPoint(from: center, distance: distanceToCorner, bearing: bearing)
+        }
+
+        // Ensure the polygon is closed by repeating the first coordinate at the end
+        if let firstCoordinate = coordinates.first {
+            coordinates.append(firstCoordinate)
+        }
+
+        return coordinates
     }
-    
+
+    func destinationPoint(from start: CLLocationCoordinate2D, distance: Double, bearing: Double) -> CLLocationCoordinate2D {
+        let radius: Double = 6371e3 // Earth's radius in meters
+        let angularDistance = distance / radius
+
+        let radLat = start.latitude * Double.pi / 180
+        let radLon = start.longitude * Double.pi / 180
+
+        let destLat = asin(sin(radLat) * cos(angularDistance) +
+                           cos(radLat) * sin(angularDistance) * cos(bearing))
+        let destLon = radLon + atan2(sin(bearing) * sin(angularDistance) * cos(radLat),
+                                     cos(angularDistance) - sin(radLat) * sin(destLat))
+
+        return CLLocationCoordinate2D(latitude: destLat * 180 / Double.pi, longitude: destLon * 180 / Double.pi)
+    }
+
     func generateKMLContentForPolygon(coordinates: [CLLocationCoordinate2D]) -> String {
         var kml = """
             <?xml version="1.0" encoding="UTF-8"?>
@@ -111,7 +120,7 @@ struct PolygonCreatorView: View {
         
         return kml
     }
-    
+
     func saveKMLToFile(kmlContent: String, acreage: Double) {
         let fileName = "\(Int(acreage))Acres_Square.kml"
         let fileURL = getDocumentsDirectory().appendingPathComponent(fileName)
@@ -123,12 +132,12 @@ struct PolygonCreatorView: View {
             print("Failed to save KML: \(error.localizedDescription)")
         }
     }
-    
+
     func getDocumentsDirectory() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
     }
-    
+
     func createPolygon() {
         let input = parseInput()
         
@@ -155,9 +164,9 @@ struct PolygonCreatorView: View {
         }
     }
 }
-    
-    struct PolygonCreatorView_Previews: PreviewProvider {
-        static var previews: some View {
-            PolygonCreatorView().environmentObject(CoordinatesContainer())
-        }
+
+struct PolygonCreatorView_Previews: PreviewProvider {
+    static var previews: some View {
+        PolygonCreatorView().environmentObject(CoordinatesContainer())
     }
+}
