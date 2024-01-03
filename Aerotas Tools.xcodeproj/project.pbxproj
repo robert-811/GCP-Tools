@@ -25,6 +25,7 @@
 		2763CE2C2AC34863004898C5 /* parseKMLContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE2B2AC34863004898C5 /* parseKMLContent.swift */; };
 		2763CE2F2AC3496A004898C5 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 2763CE2E2AC3496A004898C5 /* ZIPFoundation */; };
 		2763CE312AC359CC004898C5 /* KMLUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CE302AC359CC004898C5 /* KMLUtilities.swift */; };
+		277B55C12B453909007A0222 /* GCPPlannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277B55C02B453909007A0222 /* GCPPlannerView.swift */; };
 		278858DC2AC3861700B389FF /* CoordinatesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278858DB2AC3861700B389FF /* CoordinatesContainer.swift */; };
 		27FBD9E32B3F84FB00D40DF8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FBD9E22B3F84FB00D40DF8 /* MainView.swift */; };
 		27FBD9E52B3F87DC00D40DF8 /* PolygonCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FBD9E42B3F87DC00D40DF8 /* PolygonCreatorView.swift */; };
@@ -69,6 +70,7 @@
 		2763CE272AC34728004898C5 /* KMLParserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KMLParserDelegate.swift; sourceTree = "<group>"; };
 		2763CE2B2AC34863004898C5 /* parseKMLContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parseKMLContent.swift; sourceTree = "<group>"; };
 		2763CE302AC359CC004898C5 /* KMLUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMLUtilities.swift; sourceTree = "<group>"; };
+		277B55C02B453909007A0222 /* GCPPlannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCPPlannerView.swift; sourceTree = "<group>"; };
 		278858DB2AC3861700B389FF /* CoordinatesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesContainer.swift; sourceTree = "<group>"; };
 		27FBD9E22B3F84FB00D40DF8 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		27FBD9E42B3F87DC00D40DF8 /* PolygonCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolygonCreatorView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				2763CDFC2AC346B4004898C5 /* Assets.xcassets */,
 				2763CE012AC346B4004898C5 /* Aerotas_Tools.entitlements */,
 				2763CDFE2AC346B4004898C5 /* Preview Content */,
+				277B55C02B453909007A0222 /* GCPPlannerView.swift */,
 			);
 			path = "Aerotas Tools";
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				27FBD9E32B3F84FB00D40DF8 /* MainView.swift in Sources */,
 				27591B5F2AC4F9A000182716 /* CommonUtilitiesAndStyles.swift in Sources */,
 				27591B592AC4D84A00182716 /* DragButton.swift in Sources */,
+				277B55C12B453909007A0222 /* GCPPlannerView.swift in Sources */,
 				27591B5C2AC4E9B700182716 /* MapView.swift in Sources */,
 				275501C42AC6266500FC567A /* PlaceholderMapView.swift in Sources */,
 				27FBD9E52B3F87DC00D40DF8 /* PolygonCreatorView.swift in Sources */,
