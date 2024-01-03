@@ -20,6 +20,11 @@ struct MainView: View {
                     Text("Polygon Creator")
                 }
                 .buttonStyle(AerotasButtonStyle())
+                
+                NavigationLink(destination: GCPPlannerView()) {
+                    Text("GCP Planner")
+                }
+                .buttonStyle(AerotasButtonStyle())
             }
             .navigationTitle("Main Page")
         }
@@ -32,4 +37,3 @@ struct MainView_Previews: PreviewProvider {
         MainView()
     }
 }
-//test
