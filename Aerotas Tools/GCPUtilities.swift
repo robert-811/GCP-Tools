@@ -146,25 +146,6 @@ func fillInteriorWithGCPs(_ polygonCoordinates: [CLLocationCoordinate2D], existi
     return interiorGCPs
 }
 
-
-
-func generateGridPoints(for polygonCoordinates: [CLLocationCoordinate2D], spacing: Double) -> [CLLocationCoordinate2D] {
-    let boundingBox = calculateBoundingBox(polygonCoordinates)
-    var gridPoints = [CLLocationCoordinate2D]()
-
-    var x = boundingBox.minX
-    while x <= boundingBox.maxX {
-        var y = boundingBox.minY
-        while y <= boundingBox.maxY {
-            gridPoints.append(CLLocationCoordinate2D(latitude: y, longitude: x))
-            y += spacing
-        }
-        x += spacing
-    }
-
-    return gridPoints
-}
-
 func calculateBoundingBox(_ coordinates: [CLLocationCoordinate2D]) -> (minX: Double, maxX: Double, minY: Double, maxY: Double) {
     let lats = coordinates.map { $0.latitude }
     let lons = coordinates.map { $0.longitude }
@@ -227,82 +208,101 @@ func isLargePolygon(_ polygonCoordinates: [CLLocationCoordinate2D], spacing: Dou
     return maxDistance > spacing
 }
 
-func distributeInteriorGCPs(_ polygonCoordinates: [CLLocationCoordinate2D], existingGCPs: [CLLocationCoordinate2D], spacing: Double) -> [CLLocationCoordinate2D] {
-    var interiorGCPs = [CLLocationCoordinate2D]()
-    // Example: Create a grid and check each point
-    // Adjust the grid size and starting point as needed
-    let gridSpacing = spacing / sqrt(2)
-    let boundingBox = calculateBoundingBox(polygonCoordinates)
 
-    var x = boundingBox.minX
-    while x <= boundingBox.maxX {
-        var y = boundingBox.minY
-        while y <= boundingBox.maxY {
-            let gridPoint = CLLocationCoordinate2D(latitude: y, longitude: x)
-            if isPointInsidePolygon(gridPoint, polygonCoordinates) && !isPointNearExistingGCPs(gridPoint, existingGCPs, spacing: spacing) {
-                interiorGCPs.append(gridPoint)
-            }
-            y += gridSpacing
-        }
-        x += gridSpacing
-    }
-
-    return interiorGCPs
-}
 
 func identifyInteriorGCPs(_ polygonCoordinates: [CLLocationCoordinate2D], existingGCPs: [CLLocationCoordinate2D], spacing: Double) -> [CLLocationCoordinate2D] {
-    var interiorGCPs = existingGCPs
-    
     // Calculate the centroid of the polygon
     let centroid = calculateCentroid(of: polygonCoordinates)
     
     // Check if the centroid is inside the polygon and not too close to existing GCPs
     if isPointInsidePolygon(centroid, polygonCoordinates) && !isPointNearExistingGCPs(centroid, existingGCPs, spacing: spacing) {
-        interiorGCPs.append(centroid)
+        return [centroid]
     }
     
     // Calculate the maximum number of interior GCPs based on the 1400 rule
-    let maxInteriorGCPs = Int(1400.0 / spacing) - 1
+    let maxInteriorGCPs = Int(ceil(calculatePolygonPerimeter(polygonCoordinates) / spacing / 2))
     
-    // Generate additional interior GCPs as needed
-    while interiorGCPs.count < maxInteriorGCPs {
-        // Calculate the distance and angle for the next interior GCP
-        let distance = spacing * Double(interiorGCPs.count)
-        let angle = Double(interiorGCPs.count) * (2 * .pi / Double(maxInteriorGCPs))
+    var interiorGCPs = [CLLocationCoordinate2D]()
+    
+    // Generate additional interior GCPs evenly spaced around the centroid
+    for i in 0..<maxInteriorGCPs {
+        let angle = 2.0 * .pi * Double(i) / Double(maxInteriorGCPs)
+        let offsetX = spacing * cos(angle)
+        let offsetY = spacing * sin(angle)
+        let interiorPoint = CLLocationCoordinate2D(latitude: centroid.latitude + offsetY, longitude: centroid.longitude + offsetX)
         
-        // Calculate the latitude and longitude for the new GCP
-        let latitude = centroid.latitude + (distance / 111.32) * cos(angle) // 111.32 km is the approximate distance of one degree of latitude
-        let longitude = centroid.longitude + (distance / (111.32 * cos(centroid.latitude * .pi / 180))) * sin(angle)
+        // Check if the interior point is inside the polygon and not too close to existing GCPs
+        if isPointInsidePolygon(interiorPoint, polygonCoordinates) && !isPointNearExistingGCPs(interiorPoint, existingGCPs, spacing: spacing) {
+            interiorGCPs.append(interiorPoint)
+        }
         
-        let newGCP = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
-        // Check if the new GCP is inside the polygon and not too close to existing GCPs
-        if isPointInsidePolygon(newGCP, polygonCoordinates) && !isPointNearExistingGCPs(newGCP, interiorGCPs, spacing: spacing) {
-            interiorGCPs.append(newGCP)
-        } else {
-            break // Stop generating GCPs if no valid point can be found
+        // Break the loop if we cannot add more interior GCPs
+        if interiorGCPs.count >= maxInteriorGCPs {
+            break
         }
     }
     
     return interiorGCPs
 }
 
+func calculatePolygonPerimeter(_ polygonCoordinates: [CLLocationCoordinate2D]) -> Double {
+    var perimeter = 0.0
+    for i in 0..<polygonCoordinates.count {
+        let point1 = polygonCoordinates[i]
+        let point2 = polygonCoordinates[(i + 1) % polygonCoordinates.count]
+        perimeter += calculateDistanceBetween(point1, point2)
+    }
+    return perimeter
+}
 
 func distributeGCPsAcrossPolygon(_ polygonCoordinates: [CLLocationCoordinate2D], mode: GCPMode) -> [CLLocationCoordinate2D] {
-    let spacing = (mode == .RTK) ? 1400.0 : 700.0
+    let spacing = (mode == .RTK) ? 1400.0 : 700.0 // Spacing based on mode
     var gcpCoordinates = identifyCorners(polygonCoordinates)
 
-    if isLargePolygon(polygonCoordinates, spacing: spacing) {
-        // For larger polygons, add corners and interior markers
-        gcpCoordinates += identifyInteriorGCPs(polygonCoordinates, existingGCPs: gcpCoordinates, spacing: spacing)
-    } else {
-        // For smaller polygons, add a central GCP if needed
-        let centroid = calculateCentroid(of: polygonCoordinates)
-        if !isPointNearExistingGCPs(centroid, gcpCoordinates, spacing: spacing) {
-            gcpCoordinates.append(centroid)
-        }
-    }
+    // Add interior GCPs
+    gcpCoordinates += distributeInteriorGCPs(polygonCoordinates, existingGCPs: gcpCoordinates, spacing: spacing)
 
     return gcpCoordinates
 }
 
+func distributeInteriorGCPs(_ polygonCoordinates: [CLLocationCoordinate2D], existingGCPs: [CLLocationCoordinate2D], spacing: Double) -> [CLLocationCoordinate2D] {
+    var interiorGCPs = [CLLocationCoordinate2D]()
+    let gridPoints = generateGridPoints(for: polygonCoordinates, spacing: spacing)
+
+    for point in gridPoints {
+        if isPointInsidePolygon(point, polygonCoordinates) {
+            if !isPointNearExistingGCPs(point, existingGCPs, spacing: spacing) {
+                interiorGCPs.append(point)
+            } else {
+                print("Point near existing GCP: \(point)")
+            }
+        } else {
+            print("Point outside polygon: \(point)")
+        }
+    }
+
+    print("Total interior GCPs: \(interiorGCPs.count)")
+    return interiorGCPs
+}
+
+
+func generateGridPoints(for polygonCoordinates: [CLLocationCoordinate2D], spacing: Double) -> [CLLocationCoordinate2D] {
+    let boundingBox = calculateBoundingBox(polygonCoordinates)
+    var gridPoints = [CLLocationCoordinate2D]()
+
+    var x = boundingBox.minX + (spacing / 10)
+    while x < boundingBox.maxX {
+        var y = boundingBox.minY + (spacing / 10)
+        while y < boundingBox.maxY {
+            let gridPoint = CLLocationCoordinate2D(latitude: y, longitude: x)
+            gridPoints.append(gridPoint)
+            y += spacing / 10 // Dense grid for testing
+        }
+        x += spacing / 10 // Dense grid for testing
+    }
+
+    return gridPoints
+}
+
+
+// Other existing utility functions...
