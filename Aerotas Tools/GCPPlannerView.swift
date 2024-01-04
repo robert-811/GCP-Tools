@@ -33,6 +33,7 @@ struct GCPPlannerView: View {
         }
         .padding()
         .navigationTitle("GCP Planner")
+    .onAppear(perform: testPointInsidePolygon)
     }
     
     func generateProcessedFile() {

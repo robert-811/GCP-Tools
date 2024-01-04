@@ -304,5 +304,19 @@ func generateGridPoints(for polygonCoordinates: [CLLocationCoordinate2D], spacin
     return gridPoints
 }
 
+func testPointInsidePolygon() {
+    let testPoint = CLLocationCoordinate2D(latitude: 37.946483, longitude: -104.861785)
+    let polygonCoordinates = [
+        CLLocationCoordinate2D(latitude: 37.94847866121113, longitude: -104.85866697175992),
+        CLLocationCoordinate2D(latitude: 37.94443328310764, longitude: -104.85866711297783),
+        CLLocationCoordinate2D(latitude: 37.94443328310764, longitude: -104.86379688702218),
+        CLLocationCoordinate2D(latitude: 37.94847866121113, longitude: -104.86379702824009)
+    ]
+
+    let isTestPointInside = isPointInsidePolygon(testPoint, polygonCoordinates)
+    print("Is the test point inside the polygon? \(isTestPointInside)")
+}
+
+    
 
 // Other existing utility functions...
