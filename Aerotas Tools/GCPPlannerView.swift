@@ -1,10 +1,3 @@
-//
-//  GCPPlannerView.swift
-//  Aerotas Tools
-//
-//  Created by Roberto Molina on 1/2/24.
-//
-
 import SwiftUI
 import CoreLocation
 import AppKit
@@ -38,30 +31,11 @@ struct GCPPlannerView: View {
     func generateProcessedFile() {
         guard let fileURL = selectedFileURL else { return }
 
+        // Assuming parseKML(from:completion:) is a function that parses KML and returns polygon coordinates
         parseKML(from: fileURL) { polygonCoordinates in
-            let mainCorners = distributeGCPsAcrossPolygon(polygonCoordinates, mode: selectedMode)
-
-            // Handle KMZ files
-            let isKMZ = fileURL.pathExtension.lowercased() == "kmz"
-            if isKMZ {
-                guard let extractedKML = extractKMLFromKMZ(fileURL: fileURL) else {
-                    print("Failed to extract KML from KMZ")
-                    return
-                }
-                // Use extractedKML here if needed
-            } else {
-                // Read KML content from fileURL
-                do {
-                    let kmlContent = try String(contentsOf: fileURL)
-                    // Use kmlContent here
-                } catch {
-                    print("Failed to read KML content: \(error.localizedDescription)")
-                    return
-                }
-            }
-
-            // Distribute GCPs across the polygon
-            let gcpCoordinates = distributeGCPsAcrossPolygon(polygonCoordinates, mode: selectedMode)
+            // Assuming distributeGCPsAcrossPolygon is now replaced or integrated with new logic
+            let gcpCoordinates = GCPPlacementLogic.calculatePerimeterGCPs(for: polygonCoordinates)
+            // Future implementation: integrate interior GCP placement here
             
             // Generate new KML content with GCPs
             let newKMLContent = generateKMLContentForGCPs(originalPolygonCoordinates: polygonCoordinates, gcpCoordinates: gcpCoordinates)
@@ -69,67 +43,61 @@ struct GCPPlannerView: View {
         }
     }
 
-
-    
-    // Include the GCPMode enum and other utility functions here
-    // ...
-    
-    // Implement the FilePicker view
-    // ...
-    
     func generateKMLContentForGCPs(originalPolygonCoordinates: [CLLocationCoordinate2D], gcpCoordinates: [CLLocationCoordinate2D]) -> String {
         var kml = """
         <?xml version="1.0" encoding="UTF-8"?>
         <kml xmlns="http://www.opengis.net/kml/2.2">
         <Document>
-        <Placemark>
-        <Style>
-        <LineStyle>
-            <color>ff0000ff</color> <!-- Blue outline color -->
-            <width>2</width>
-        </LineStyle>
-        <PolyStyle>
-            <fill>0</fill> <!-- No fill -->
-        </PolyStyle>
+        <name>GCP Plan</name>
+        <Style id="gcpStyle">
+            <IconStyle>
+                <Icon>
+                    <href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+                </Icon>
+            </IconStyle>
         </Style>
-        <Polygon>
-        <outerBoundaryIs>
-        <LinearRing>
-        <coordinates>
+        <Placemark>
+            <name>Polygon Area</name>
+            <styleUrl>#polygonStyle</styleUrl>
+            <Polygon>
+                <outerBoundaryIs>
+                    <LinearRing>
+                        <coordinates>
         """
-
+        
         // Add original polygon coordinates
         for coordinate in originalPolygonCoordinates {
-            kml += "\(coordinate.longitude),\(coordinate.latitude) "
+            kml += "\(coordinate.longitude),\(coordinate.latitude),0 "
         }
-
+        
         kml += """
-        </coordinates>
-        </LinearRing>
-        </outerBoundaryIs>
-        </Polygon>
+                        </coordinates>
+                    </LinearRing>
+                </outerBoundaryIs>
+            </Polygon>
         </Placemark>
         """
-
+        
         // Add GCP markers
-        for gcp in gcpCoordinates {
+        for (index, gcp) in gcpCoordinates.enumerated() {
             kml += """
-            <Placemark>
-            <Point>
-            <coordinates>\(gcp.longitude),\(gcp.latitude)</coordinates>
-            </Point>
-            </Placemark>
+                <Placemark>
+                    <name>GCP \(index + 1)</name>
+                    <styleUrl>#gcpStyle</styleUrl>
+                    <Point>
+                        <coordinates>\(gcp.longitude),\(gcp.latitude),0</coordinates>
+                    </Point>
+                </Placemark>
             """
         }
-
+        
         kml += """
-        </Document>
-        </kml>
-        """
-
+            </Document>
+            </kml>
+            """
+        
         return kml
     }
-
     
     
     func saveKMLToFile(kmlContent: String, originalFileURL: URL) {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273DC2F42BA28815005B58CC /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 273DC2F32BA28815005B58CC /* ZIPFoundation */; };
+		273DC2F62BA28844005B58CC /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = 273DC2F52BA28844005B58CC /* ZIPFoundation */; };
 		275501BE2AC5F81E00FC567A /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275501BD2AC5F81E00FC567A /* DropView.swift */; };
 		275501C02AC622B400FC567A /* DropButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275501BF2AC622B400FC567A /* DropButton.swift */; };
 		275501C42AC6266500FC567A /* PlaceholderMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275501C32AC6266500FC567A /* PlaceholderMapView.swift */; };
@@ -95,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				273DC2F62BA28844005B58CC /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				273DC2F42BA28815005B58CC /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +223,9 @@
 				2763CE082AC346B4004898C5 /* PBXTargetDependency */,
 			);
 			name = "Aerotas ToolsTests";
+			packageProductDependencies = (
+				273DC2F52BA28844005B58CC /* ZIPFoundation */,
+			);
 			productName = "Aerotas ToolsTests";
 			productReference = 2763CE062AC346B4004898C5 /* Aerotas ToolsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -237,6 +244,9 @@
 				2763CE122AC346B4004898C5 /* PBXTargetDependency */,
 			);
 			name = "Aerotas ToolsUITests";
+			packageProductDependencies = (
+				273DC2F32BA28815005B58CC /* ZIPFoundation */,
+			);
 			productName = "Aerotas ToolsUITests";
 			productReference = 2763CE102AC346B4004898C5 /* Aerotas ToolsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -680,6 +690,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		273DC2F32BA28815005B58CC /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2763CE2D2AC3496A004898C5 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		273DC2F52BA28844005B58CC /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2763CE2D2AC3496A004898C5 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
 		2763CE2E2AC3496A004898C5 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2763CE2D2AC3496A004898C5 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
